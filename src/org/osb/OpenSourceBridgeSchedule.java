@@ -108,7 +108,6 @@ public class OpenSourceBridgeSchedule extends Activity {
     LinearLayout mBio;
     
     // session detail actions
-    Button mFoursquare;
     Button mShare;
     Button mMap;
     Button mShowDescription;
@@ -149,7 +148,6 @@ public class OpenSourceBridgeSchedule extends Activity {
         mBio = (LinearLayout) detail.findViewById(R.id.bio);
         
         // detail action buttons 
-        mFoursquare = (Button) findViewById(R.id.foursquare);
         mShare = (Button) findViewById(R.id.share);
         mMap = (Button) findViewById(R.id.map);
         mShowDescription = (Button) findViewById(R.id.show_description);
@@ -337,35 +335,6 @@ public class OpenSourceBridgeSchedule extends Activity {
 				return view;
 			}
         });
-        
-        mFoursquare.setOnClickListener(new OnClickListener() { 
-			public void onClick(View v) {
-				String url = mapRoomNameToFqUrl((mLocation).getText().toString());
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-				startActivity(intent);
-			}
-
-			private String mapRoomNameToFqUrl(String roomName) {
-				// TODO Update FourSquare venues or disable functionality.
-				String vid = "";
-				if (roomName.equals("Hawthorne")) {
-					vid = "4281683";
-				} else if (roomName.equals("Burnside")) {
-					vid = "4281826";
-				} else if (roomName.equals("St. Johns")) {
-					vid = "4281970";
-				} else if (roomName.equals("Broadway")) {
-					vid = "4281777";
-				} else if (roomName.equals("Morrison")) {
-					vid = "4281923";
-				} else if (roomName.equals("Fremont")) {
-					vid = "4281874";
-				} else if (roomName.equals("Steel")) {
-					vid = "4282004";
-				}
-				return "http://m.foursquare.com/checkin?vid="+vid;
-			}
-		});
         
         mShare.setOnClickListener(new OnClickListener() { 
 			public void onClick(View v) {
