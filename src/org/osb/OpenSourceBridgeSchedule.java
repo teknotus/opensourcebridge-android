@@ -57,15 +57,19 @@ public class OpenSourceBridgeSchedule extends Activity {
 	// Cache files for 2 hours (in milliseconds)
 	private static final long CACHE_TIMEOUT = 7200000;
 	
-	private static final Date JUN1 = new Date(110, 5, 1);
-	private static final Date JUN2 = new Date(110, 5, 2);
-	private static final Date JUN3 = new Date(110, 5, 3);
-	private static final Date JUN4 = new Date(110, 5, 4);
+	// TODO Fetch dates from OCW.
+	// TODO Refactor dates as array.
+	private static final Date JUN1 = new Date(111, 5, 21);
+	private static final Date JUN2 = new Date(111, 5, 22);
+	private static final Date JUN3 = new Date(111, 5, 23);
+	private static final Date JUN4 = new Date(111, 5, 24);
 
+	// TODO Generate menu items from dates fetched from OCW.
 	private static final int MENU_JUN1 = 1;
 	private static final int MENU_JUN2 = 2;
 	private static final int MENU_JUN3 = 3;
 	private static final int MENU_JUN4 = 4;
+
 	private static final int MENU_NEXT = 5;
 	private static final int MENU_PREV = 6;
 	private static final int MENU_ABOUT = 7;
@@ -110,7 +114,7 @@ public class OpenSourceBridgeSchedule extends Activity {
     Button mShowDescription;
     Button mShowBio;
     
-    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2010/schedule.json";
+    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2011/schedule.json";
     private static final String SPEAKER_URI_BASE = "http://opensourcebridge.org/users/";
     
     /** Called when the activity is first created. */
@@ -194,6 +198,7 @@ public class OpenSourceBridgeSchedule extends Activity {
 			}
 			
 			private int getMapResource(CharSequence roomName) {
+				// TODO Fetch rooms from OCW.
 				if (roomName.equals("Hawthorne")) {
 					return R.drawable.hawthorne;
 				} else if (roomName.equals("Burnside")) {
@@ -341,6 +346,7 @@ public class OpenSourceBridgeSchedule extends Activity {
 			}
 
 			private String mapRoomNameToFqUrl(String roomName) {
+				// TODO Update FourSquare venues or disable functionality.
 				String vid = "";
 				if (roomName.equals("Hawthorne")) {
 					vid = "4281683";
@@ -404,11 +410,14 @@ public class OpenSourceBridgeSchedule extends Activity {
 	/* Creates the menu items */
 	public boolean onCreateOptionsMenu(Menu menu) {
 		menu.add(0, MENU_PREV, 0, "Previous Day").setIcon(R.drawable.ic_menu_back);
-		SubMenu dayMenu = menu.addSubMenu("Day").setIcon(android.R.drawable.ic_menu_today);   
-	    dayMenu.add(0, MENU_JUN1, 0, "Tuesday, June 1");
-	    dayMenu.add(0, MENU_JUN2, 0, "Wednesday, June 2");
-	    dayMenu.add(0, MENU_JUN3, 0, "Thursday, June 3");
-	    dayMenu.add(0, MENU_JUN4, 0, "Friday, June 4");
+		SubMenu dayMenu = menu.addSubMenu("Day").setIcon(android.R.drawable.ic_menu_today);
+
+		// TODO Generate days menu from data fetched from OCW.
+	    dayMenu.add(0, MENU_JUN1, 0, this.getDayAsString(JUN1));
+	    dayMenu.add(0, MENU_JUN2, 0, this.getDayAsString(JUN2));
+	    dayMenu.add(0, MENU_JUN3, 0, this.getDayAsString(JUN3));
+	    dayMenu.add(0, MENU_JUN4, 0, this.getDayAsString(JUN4));
+
 		menu.add(0, MENU_NEXT, 0, "Next Day").setIcon(R.drawable.ic_menu_forward);
 	    menu.add(0, MENU_NOW, 0, "Now").setIcon(android.R.drawable.ic_menu_mylocation);
 	    menu.add(0, MENU_REFRESH, 0, "Refresh").setIcon(R.drawable.ic_menu_refresh);
@@ -418,6 +427,7 @@ public class OpenSourceBridgeSchedule extends Activity {
 
 	/* Handles item selections */
 	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Manage per-day schedules dynamically, rather than hard coding them in.
 	    switch (item.getItemId()) {
 	    case MENU_NOW:
 	        now();
@@ -454,7 +464,14 @@ public class OpenSourceBridgeSchedule extends Activity {
 	    }
 	    return false;
 	}
-	
+
+	public static final DateFormat date_formatter = new SimpleDateFormat("E, MMMM d");
+
+	/* Returns string with date formatted like "Friday, June 24". */
+	public String getDayAsString(Date date) {
+		return date_formatter.format(date);
+	}
+
 	/* sets the current day, filtering the list if need be */
 	public void setDay(Date date) {
 		if (isSameDay(mCurrentDate, date)) {
@@ -464,8 +481,7 @@ public class OpenSourceBridgeSchedule extends Activity {
 			// different day, update the list
 			mCurrentDate = date;
 			mAdapter.filterDay(date);
-			DateFormat formatter = new SimpleDateFormat("E, MMMM d");
-			mDate.setText(formatter.format(mCurrentDate));
+			mDate.setText(this.getDayAsString(mCurrentDate));
 		} 
 		
 		// take user back to the listings if not already there 

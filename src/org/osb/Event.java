@@ -5,11 +5,12 @@ import org.json.JSONArray;
 import org.osb.R;
 
 public class Event {
-	private static final int TRACK_BUSINESS = 7;
-	private static final int TRACK_CHEMISTRY = 8;
-	private static final int TRACK_COOKING = 9;
-	private static final int TRACK_CULTURE = 10;
-	private static final int TRACK_HACKS = 11;
+	// TODO Fetch tracks from OCW.
+	private static final int TRACK_BUSINESS = 13;
+	private static final int TRACK_CHEMISTRY = 14;
+	private static final int TRACK_COOKING = 15;
+	private static final int TRACK_CULTURE = 16;
+	private static final int TRACK_HACKS = 17;
 	
 	public Date start, end;
 	public String description;
@@ -35,6 +36,7 @@ public class Event {
 	}
 	
 	public String getTrackName() {
+		// TODO Fetch tracks from OCW.
 		switch(track) {
 		case TRACK_BUSINESS:
 			return "Business";
@@ -55,6 +57,7 @@ public class Event {
 	 * @return the resource id for the track color
 	 */
 	public int getTrackColor() {
+		// TODO Fetch tracks from OCW.
 		switch(track) {
 		case TRACK_BUSINESS:
 			return R.color.track_business;
@@ -75,6 +78,7 @@ public class Event {
     * @return the resource id for the track color darker shade
     */
     public int getTrackColorDark() {
+       // TODO Fetch tracks from OCW.
 	   switch(track) {
 	   case TRACK_BUSINESS:
 	           return R.color.track_business_dark;
