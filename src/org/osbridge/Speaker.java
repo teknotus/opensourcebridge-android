@@ -1,4 +1,4 @@
-package org.osb;
+package org.osbridge;
 
 public class Speaker {
 	String name = null;

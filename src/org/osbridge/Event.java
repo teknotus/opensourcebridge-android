@@ -1,8 +1,8 @@
-package org.osb;
+package org.osbridge;
 import java.util.Date;
 
 import org.json.JSONArray;
-import org.osb.R;
+import org.osbridge.R;
 
 public class Event {
 	// TODO Fetch tracks from OCW.

@@ -1,4 +1,4 @@
-package org.osb;
+package org.osbridge;
 
 import java.io.BufferedReader;
 import java.io.IOException;

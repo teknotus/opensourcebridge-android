@@ -1,4 +1,4 @@
-package org.osb;
+package org.osbridge;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,6 +21,7 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.osbridge.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -50,7 +51,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 
-public class OpenSourceBridgeSchedule extends Activity {
+public class Schedule extends Activity {
 
 	// Cache files for 2 hours (in milliseconds)
 	private static final long CACHE_TIMEOUT = 7200000;
