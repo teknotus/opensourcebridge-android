@@ -104,12 +104,10 @@ public class OpenSourceBridgeSchedule extends Activity {
     TextView mSpeaker;
     ScrollView mDescriptionScroller;
     TextView mDescription;
-    ImageView mMapImage;
     LinearLayout mBio;
     
     // session detail actions
     Button mShare;
-    Button mMap;
     Button mShowDescription;
     Button mShowBio;
     
@@ -144,12 +142,10 @@ public class OpenSourceBridgeSchedule extends Activity {
         mLocation = (TextView) detail.findViewById(R.id.location);
         mDescription = (TextView) detail.findViewById(R.id.description);
         mDescriptionScroller = (ScrollView) detail.findViewById(R.id.description_scroller);
-        mMapImage = (ImageView) detail.findViewById(R.id.map_image);
         mBio = (LinearLayout) detail.findViewById(R.id.bio);
         
         // detail action buttons 
         mShare = (Button) findViewById(R.id.share);
-        mMap = (Button) findViewById(R.id.map);
         mShowDescription = (Button) findViewById(R.id.show_description);
         mShowBio = (Button) findViewById(R.id.show_bio);
         
@@ -186,36 +182,7 @@ public class OpenSourceBridgeSchedule extends Activity {
 				show_description();
 			}
         });
-        
-        mMap.setOnClickListener(new OnClickListener() { 
-			public void onClick(View v) {
-				mMapImage.setImageResource(getMapResource(mLocation.getText()));
-				mDescription.setVisibility(View.GONE);
-				mBio.setVisibility(View.GONE);
-				mMapImage.setVisibility(View.VISIBLE);
-			}
-			
-			private int getMapResource(CharSequence roomName) {
-				// TODO Fetch rooms from OCW.
-				if (roomName.equals("Hawthorne")) {
-					return R.drawable.hawthorne;
-				} else if (roomName.equals("Burnside")) {
-					return R.drawable.burnside;
-				} else if (roomName.equals("St. Johns")) {
-					return R.drawable.st_johns;
-				} else if (roomName.equals("Broadway")) {
-					return R.drawable.broadway;
-				} else if (roomName.equals("Morrison")) {
-					return R.drawable.morrison;
-				} else if (roomName.equals("Fremont")) {
-					return R.drawable.fremont;
-				} else if (roomName.equals("Steel")) {
-					return R.drawable.steel;
-				}
-				return R.drawable.icon_footer;
-			}
-        });
-        
+
         mShowBio.setOnClickListener(new OnClickListener() { 
 			public void onClick(View v) {
 				
@@ -237,7 +204,6 @@ public class OpenSourceBridgeSchedule extends Activity {
 					}
 				
 					mDescription.setVisibility(View.GONE);
-					mMapImage.setVisibility(View.GONE);
 					mBio.setVisibility(View.VISIBLE);
 				}
 			}
@@ -360,7 +326,6 @@ public class OpenSourceBridgeSchedule extends Activity {
 	 * Shows the session description, hides all other subviews
 	 */
 	private void show_description(){
-		mMapImage.setVisibility(View.GONE);
 		mBio.setVisibility(View.GONE);
 		mDescription.setVisibility(View.VISIBLE);
 	}
