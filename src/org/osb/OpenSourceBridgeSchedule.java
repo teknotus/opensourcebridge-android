@@ -59,16 +59,16 @@ public class OpenSourceBridgeSchedule extends Activity {
 	
 	// TODO Fetch dates from OCW.
 	// TODO Refactor dates as array.
-	private static final Date JUN1 = new Date(111, 5, 21);
-	private static final Date JUN2 = new Date(111, 5, 22);
-	private static final Date JUN3 = new Date(111, 5, 23);
-	private static final Date JUN4 = new Date(111, 5, 24);
+	private static final Date DAY1 = new Date(111, 5, 21);
+	private static final Date DAY2 = new Date(111, 5, 22);
+	private static final Date DAY3 = new Date(111, 5, 23);
+	private static final Date DAY4 = new Date(111, 5, 24);
 
 	// TODO Generate menu items from dates fetched from OCW.
-	private static final int MENU_JUN1 = 1;
-	private static final int MENU_JUN2 = 2;
-	private static final int MENU_JUN3 = 3;
-	private static final int MENU_JUN4 = 4;
+	private static final int MENU_DAY1 = 1;
+	private static final int MENU_DAY2 = 2;
+	private static final int MENU_DAY3 = 3;
+	private static final int MENU_DAY4 = 4;
 
 	private static final int MENU_NEXT = 5;
 	private static final int MENU_PREV = 6;
@@ -413,10 +413,10 @@ public class OpenSourceBridgeSchedule extends Activity {
 		SubMenu dayMenu = menu.addSubMenu("Day").setIcon(android.R.drawable.ic_menu_today);
 
 		// TODO Generate days menu from data fetched from OCW.
-	    dayMenu.add(0, MENU_JUN1, 0, this.getDayAsString(JUN1));
-	    dayMenu.add(0, MENU_JUN2, 0, this.getDayAsString(JUN2));
-	    dayMenu.add(0, MENU_JUN3, 0, this.getDayAsString(JUN3));
-	    dayMenu.add(0, MENU_JUN4, 0, this.getDayAsString(JUN4));
+	    dayMenu.add(0, MENU_DAY1, 0, this.getDayAsString(DAY1));
+	    dayMenu.add(0, MENU_DAY2, 0, this.getDayAsString(DAY2));
+	    dayMenu.add(0, MENU_DAY3, 0, this.getDayAsString(DAY3));
+	    dayMenu.add(0, MENU_DAY4, 0, this.getDayAsString(DAY4));
 
 		menu.add(0, MENU_NEXT, 0, "Next Day").setIcon(R.drawable.ic_menu_forward);
 	    menu.add(0, MENU_NOW, 0, "Now").setIcon(android.R.drawable.ic_menu_mylocation);
@@ -432,17 +432,17 @@ public class OpenSourceBridgeSchedule extends Activity {
 	    case MENU_NOW:
 	        now();
 	        return true;
-	    case MENU_JUN1:
-	    	setDay(JUN1);
+	    case MENU_DAY1:
+	    	setDay(DAY1);
 	        return true;
-    	case MENU_JUN2:
-    		setDay(JUN2);
+    	case MENU_DAY2:
+    		setDay(DAY2);
 	        return true;
-		case MENU_JUN3:
-			setDay(JUN3);
+		case MENU_DAY3:
+			setDay(DAY3);
     		return true;
-		case MENU_JUN4:
-			setDay(JUN4);
+		case MENU_DAY4:
+			setDay(DAY4);
 			return true;
 		case MENU_PREV:
 			previous();
@@ -498,8 +498,8 @@ public class OpenSourceBridgeSchedule extends Activity {
 	 */
 	public void now(){
 		Date now = new Date();
-		if (now.before(JUN1) || now.after(JUN4)) {
-			setDay(JUN1);
+		if (now.before(DAY1) || now.after(DAY4)) {
+			setDay(DAY1);
 		} else {
 			// use now, since it will have the time of day for 
 			// jumping to the right time
@@ -511,12 +511,12 @@ public class OpenSourceBridgeSchedule extends Activity {
 	 * Jumps to the next day, if not already at the end
 	 */
 	public void next() {
-		if (isSameDay(mCurrentDate, JUN1)) {
-			setDay(JUN2);
-		} else if (isSameDay(mCurrentDate, JUN2)) {
-			setDay(JUN3);
-		} else if (isSameDay(mCurrentDate, JUN3)) {
-			setDay(JUN4);
+		if (isSameDay(mCurrentDate, DAY1)) {
+			setDay(DAY2);
+		} else if (isSameDay(mCurrentDate, DAY2)) {
+			setDay(DAY3);
+		} else if (isSameDay(mCurrentDate, DAY3)) {
+			setDay(DAY4);
 		}
 	}
 	
@@ -524,12 +524,12 @@ public class OpenSourceBridgeSchedule extends Activity {
 	 * Jumps to the previous day if now already at the beginning
 	 */
 	public void previous() {
-		if (isSameDay(mCurrentDate, JUN4)) {
-			setDay(JUN3);
-		} else if (isSameDay(mCurrentDate, JUN3)) {
-			setDay(JUN2);
-		} else if (isSameDay(mCurrentDate, JUN2)) {
-			setDay(JUN1);
+		if (isSameDay(mCurrentDate, DAY4)) {
+			setDay(DAY3);
+		} else if (isSameDay(mCurrentDate, DAY3)) {
+			setDay(DAY2);
+		} else if (isSameDay(mCurrentDate, DAY2)) {
+			setDay(DAY1);
 		}
 	}
 	
