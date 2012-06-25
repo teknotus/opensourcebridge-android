@@ -2,7 +2,7 @@
 <resources>
     
     <string name="app_name">Open Source Bridge - Schedule</string>
-    <string name="version">Android app version 2012.0</string>
+    <string name="version">Android app version 2012</string>
     
     <string name="about">Open Source Bridge is a new conference for developers working with open source technologies and for people interested in learning the open source way.  This app ensures you always have the conference schedule right in your pocket.</string>
     <string name="author">This project was started by Peter Krenesky of the Oregon State University Open Source Lab, home of growing, high-impact open source communities: http://osuosl.org</string>
