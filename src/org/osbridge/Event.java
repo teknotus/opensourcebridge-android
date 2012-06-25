@@ -11,6 +11,7 @@ public class Event {
 	private static final int TRACK_COOKING = 22;
 	private static final int TRACK_CULTURE = 23;
 	private static final int TRACK_HACKS = 24;
+    private static final int TRACK_BOF = 25;
 	
 	public Date start, end;
 	public String description;
@@ -48,6 +49,8 @@ public class Event {
 			return "Culture";
 		case TRACK_HACKS:
 			return "Hacks";
+        case TRACK_BOF:
+            return "BOF";
 		default:
 			return "";
 		}
@@ -69,6 +72,8 @@ public class Event {
 			return R.color.track_culture;
 		case TRACK_HACKS:
 			return R.color.track_hacks;
+        case TRACK_BOF:
+            return R.color.track_bof;
 		default:
 			return R.color.track_other;
 		}
@@ -90,6 +95,8 @@ public class Event {
 	           return R.color.track_culture_dark;
 	   case TRACK_HACKS:
 	           return R.color.track_hacks_dark;
+       case TRACK_BOF:
+               return R.color.track_bof_dark;
 	   default:
 	           return R.color.track_other_dark;
 	   }
