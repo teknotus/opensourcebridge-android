@@ -1,4 +1,6 @@
-package org.osbridge;
+package org.opensourcebridge.android2012;
+
+import org.opensourcebridge.android2012.R;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +23,6 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osbridge.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -50,7 +51,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-
 public class Schedule extends Activity {
 
 	// Cache files for 2 hours (in milliseconds)
@@ -58,10 +58,10 @@ public class Schedule extends Activity {
 	
 	// TODO Fetch dates from OCW.
 	// TODO Refactor dates as array.
-	private static final Date DAY1 = new Date(111, 5, 21);
-	private static final Date DAY2 = new Date(111, 5, 22);
-	private static final Date DAY3 = new Date(111, 5, 23);
-	private static final Date DAY4 = new Date(111, 5, 24);
+	private static final Date DAY1 = new Date(112, 5, 26);
+	private static final Date DAY2 = new Date(112, 5, 27);
+	private static final Date DAY3 = new Date(112, 5, 28);
+	private static final Date DAY4 = new Date(112, 5, 29);
 
 	// TODO Generate menu items from dates fetched from OCW.
 	private static final int MENU_DAY1 = 1;
@@ -110,7 +110,7 @@ public class Schedule extends Activity {
     Button mShowDescription;
     Button mShowBio;
     
-    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2011/schedule.json";
+    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2012/schedule.json";
     private static final String SPEAKER_URI_BASE = "http://opensourcebridge.org/users/";
     
     /** Called when the activity is first created. */

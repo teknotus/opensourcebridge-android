@@ -1,4 +1,4 @@
-package org.osbridge;
+package org.opensourcebridge.android2012;
 
 import java.io.BufferedReader;
 import java.io.IOException;

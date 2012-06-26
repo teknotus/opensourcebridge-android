@@ -1,0 +1,59 @@
+ANDROID STORE SETUP
+===================
+
+SCREENSHOTS
+
+main.png
+session.png
+
+
+HIGH RESOLUTION APPLICATION ICON
+
+hugelogo.png
+
+
+TITLE
+
+Open Source Bridge 2012
+
+
+DESCRIPTION
+
+Open Source Bridge conference schedule for 2012.
+
+Open Source Bridge is a new conference for developers working with open source technologies and for people interested in learning the open source way. This app ensures you always have the conference schedule right in your pocket.
+
+
+RECENT CHANGES
+* Updated for 2012.
+* Includes BOF track.
+* Intended to replace the old "Open Source Bridge Schedule" currently on Google Play, which no one, including Igal can modify due to something being wrong with the account.
+
+
+APPLICATION TYPE
+
+Applications
+
+
+CATEGORY
+
+Education
+
+
+COPY PROTECTION
+
+Off
+
+
+CONTENT RATING
+
+Everyone
+
+
+CONTACT
+
+http://opensourcebridge.org
+androidATbridgepdxDOTorg
+503-929-5825
+
+(do not use androidATopensourcebridgeDOTorg, that doesn't work for some reason at the moment)
