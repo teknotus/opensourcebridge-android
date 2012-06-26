@@ -1,6 +1,6 @@
-package org.osbridge;
+package org.opensourcebridge.android2012;
 
-import org.osbridge.R;
+import org.opensourcebridge.android2012.R;
 
 import android.app.Activity;
 import android.content.Intent;

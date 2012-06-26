@@ -1,4 +1,6 @@
-package org.osbridge;
+package org.opensourcebridge.android2012;
+
+import org.opensourcebridge.android2012.R;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +23,6 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.osbridge.R;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -49,7 +50,6 @@ import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-
 
 public class Schedule extends Activity {
 

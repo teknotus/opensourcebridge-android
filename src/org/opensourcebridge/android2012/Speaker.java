@@ -1,4 +1,4 @@
-package org.osbridge;
+package org.opensourcebridge.android2012;
 
 public class Speaker {
 	String name = null;
