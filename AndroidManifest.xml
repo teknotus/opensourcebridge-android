@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest android:versionName="2012.0" xmlns:android="http://schemas.android.com/apk/res/android" package="org.opensourcebridge.android2012" android:versionCode="15">
+<manifest android:versionName="2013.0" xmlns:android="http://schemas.android.com/apk/res/android" package="org.opensourcebridge.android2013" android:versionCode="15">
     <application android:label="OSBridge" android:description="@string/app_description" android:icon="@drawable/hugelogo">
-        <activity android:name="org.opensourcebridge.android2012.Main"
+        <activity android:name="org.opensourcebridge.android2013.Main"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
@@ -9,7 +9,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="org.opensourcebridge.android2012.Schedule"
+        <activity android:name="org.opensourcebridge.android2013.Schedule"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.NoTitleBar">
         </activity>

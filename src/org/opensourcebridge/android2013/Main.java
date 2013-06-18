@@ -1,6 +1,6 @@
-package org.opensourcebridge.android2012;
+package org.opensourcebridge.android2013;
 
-import org.opensourcebridge.android2012.R;
+import org.opensourcebridge.android2013.R;
 
 import android.app.Activity;
 import android.content.Intent;

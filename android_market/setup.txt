@@ -14,18 +14,18 @@ hugelogo.png
 
 TITLE
 
-Open Source Bridge 2012
+Open Source Bridge 2013
 
 
 DESCRIPTION
 
-Open Source Bridge conference schedule for 2012.
+Open Source Bridge conference schedule for 2013.
 
 Open Source Bridge is a new conference for developers working with open source technologies and for people interested in learning the open source way. This app ensures you always have the conference schedule right in your pocket.
 
 
 RECENT CHANGES
-* Updated for 2012.
+* Updated for 2013.
 * Includes BOF track.
 * Intended to replace the old "Open Source Bridge Schedule" currently on Google Play, which no one, including Igal can modify due to something being wrong with the account.
 

@@ -1,8 +1,8 @@
-package org.opensourcebridge.android2012;
+package org.opensourcebridge.android2013;
 import java.util.Date;
 
 import org.json.JSONArray;
-import org.opensourcebridge.android2012.R;
+import org.opensourcebridge.android2013.R;
 
 public class Event {
 	// TODO Fetch tracks from OCW.
