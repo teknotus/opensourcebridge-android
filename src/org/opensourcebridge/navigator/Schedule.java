@@ -225,25 +225,8 @@ public class Schedule extends Activity {
                     try {
                         String raw = getURL(SPEAKER_URI_BASE + id + ".json", false);
                         JSONObject json = new JSONObject(raw);
-                        speaker = new Speaker();
+                        speaker = new Speaker(json.getJSONObject("user"));
                         mSpeakers.put(id, speaker);
-                        speaker.name  = json.getString("fullname");
-                        speaker.biography  = json.getString("biography").replace("\r","");
-                        if (json.has("twitter")) {
-                            speaker.twitter  = json.getString("twitter");
-                        }
-                        if (json.has("identica")){
-                            speaker.identica  = json.getString("identica");
-                        }
-                        if (json.has("website")) {
-                            speaker.website  = json.getString("website");
-                        }
-                        if (json.has("blog_url")) {
-                            speaker.blog = json.getString("blog_url");
-                        }
-                        if (json.has("affiliation")) {
-                            speaker.affiliation  = json.getString("affiliation");
-                        }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
