@@ -599,6 +599,10 @@ public class Schedule extends Activity {
                     Event event = parseScheduleItem(dateFormatter, json.getJSONObject("schedule_item"));
                     events.add(event);
                 }
+                if(json.has("proposal")) {
+                    Event event = parseScheduleItem(dateFormatter, json.getJSONObject("proposal"));
+                    events.add(event);
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
