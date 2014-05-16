@@ -589,55 +589,16 @@ public class Schedule extends Activity {
         ArrayList<Event> events = new ArrayList<Event>();
         try{
             String raw_json = getURL(SCHEDULE_URI, force);
-            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss-'07:00'");
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss-'07:00'");
             JSONObject schedule = new JSONObject(raw_json);
             JSONArray json_events = schedule.getJSONArray("items");
             int size = json_events.length();
             for(int i=0; i<size; i++){
                 JSONObject json = json_events.getJSONObject(i);
-                Event event = new Event();
-
-                event.id = json.getString("event_id");
-                event.title = json.getString("title");
-                event.description = json.getString("description")
-                            .replace("\r","")
-                            .replace("<br>","\n")
-                            .replace("<blockquote>","")
-                            .replace("</blockquote>","")
-                            .replace("<b>","")
-                            .replace("</b>","");
-                if (event.description.equals("")){
-                    //XXX fill description with spaces, fixes a bug where android will
-                    //    center the logo on the detail page without content in description
-                    event.description = "                                                                                  ";
+                if(json.has("schedule_item")) {
+                    Event event = parseScheduleItem(formatter, i, json.getJSONObject("schedule_item"));
+                    events.add(event);
                 }
-                event.start = formatter.parse(json.getString("start_time"));
-                event.end = formatter.parse(json.getString("end_time"));
-                event.location = json.getString("room_title");
-                if (event.location == "null"){
-                    event.location = "";
-                }
-                if (json.has("track_id")){
-                    event.track = json.getInt("track_id");
-                } else {
-                    event.track = -1;
-                }
-                if (json.has("user_titles")){
-                    StringBuilder speakers = new StringBuilder();
-                    JSONArray speakers_json = json.getJSONArray("user_titles");
-                    for(int z=0; z<speakers_json.length(); z++){
-                        String speaker = speakers_json.getString(z);
-                        if (z>0){
-                            speakers.append(", ");
-                        }
-                        speakers.append(speaker);
-                    }
-                    event.speakers = speakers.toString();
-                }
-                if (json.has("user_ids")){
-                    event.speaker_ids = json.getJSONArray("user_ids");
-                }
-                events.add(event);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -648,6 +609,54 @@ public class Schedule extends Activity {
             // TODO
         }
         calendar.setEvents(events);
+    }
+
+    public Event parseScheduleItem(DateFormat formatter, int i, JSONObject json)
+        throws JSONException, ParseException {
+
+        Event event = new Event();
+
+        event.id = json.getString("event_id");
+        event.title = json.getString("title");
+        event.description = json.getString("description")
+                    .replace("\r","")
+                    .replace("<br>","\n")
+                    .replace("<blockquote>","")
+                    .replace("</blockquote>","")
+                    .replace("<b>","")
+                    .replace("</b>","");
+        if (event.description.equals("")){
+            //XXX fill description with spaces, fixes a bug where android will
+            //    center the logo on the detail page without content in description
+            event.description = "                                                                                  ";
+        }
+        event.start = formatter.parse(json.getString("start_time"));
+        event.end = formatter.parse(json.getString("end_time"));
+        event.location = json.getString("room_title");
+        if (event.location == "null"){
+            event.location = "";
+        }
+        if (json.has("track_id")){
+            event.track = json.getInt("track_id");
+        } else {
+            event.track = -1;
+        }
+        if (json.has("user_titles")){
+            StringBuilder speakers = new StringBuilder();
+            JSONArray speakers_json = json.getJSONArray("user_titles");
+            for(int z=0; z<speakers_json.length(); z++){
+                String speaker = speakers_json.getString(z);
+                if (z>0){
+                    speakers.append(", ");
+                }
+                speakers.append(speaker);
+            }
+            event.speakers = speakers.toString();
+        }
+        if (json.has("user_ids")){
+            event.speaker_ids = json.getJSONArray("user_ids");
+        }
+        return event;
     }
 
     @Override
