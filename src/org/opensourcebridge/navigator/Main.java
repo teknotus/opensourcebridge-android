@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 public class Main extends Activity {
-        private final int SPLASH_DISPLAY_LENGTH = 100;
+        private final int SPLASH_DISPLAY_LENGTH = 1000;
         /** Called when the activity is first created. */
         @Override
         public void onCreate(Bundle bundle) {
