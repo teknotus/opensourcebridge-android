@@ -56,10 +56,10 @@ public class Schedule extends Activity {
 
     // TODO Fetch dates from OCW.
     // TODO Refactor dates as array.
-    private static final Date DAY1 = new Date(113, 5, 18);
-    private static final Date DAY2 = new Date(113, 5, 19);
-    private static final Date DAY3 = new Date(113, 5, 20);
-    private static final Date DAY4 = new Date(113, 5, 21);
+    private static final Date DAY1 = new Date(114, 5, 24);
+    private static final Date DAY2 = new Date(114, 5, 25);
+    private static final Date DAY3 = new Date(114, 5, 26);
+    private static final Date DAY4 = new Date(114, 5, 27);
 
     // TODO Generate menu items from dates fetched from OCW.
     private static final int MENU_DAY1 = 1;
@@ -108,7 +108,7 @@ public class Schedule extends Activity {
     Button mShowDescription;
     Button mShowBio;
 
-    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2013/schedule.json";
+    private static final String SCHEDULE_URI = "http://opensourcebridge.org/events/2014/schedule.json";
     private static final String SPEAKER_URI_BASE = "http://opensourcebridge.org/users/";
 
     /** Called when the activity is first created. */
