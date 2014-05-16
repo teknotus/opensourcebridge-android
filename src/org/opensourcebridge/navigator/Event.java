@@ -1,4 +1,4 @@
-package org.opensourcebridge.android2013;
+package org.opensourcebridge.navigator;
 import java.util.Date;
 
 import org.json.JSONArray;

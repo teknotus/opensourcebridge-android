@@ -1,6 +1,4 @@
-package org.opensourcebridge.android2013;
-
-import org.opensourcebridge.android2013.R;
+package org.opensourcebridge.navigator;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,6 +16,7 @@ public class Main extends Activity {
                  * and close this Splash-Screen after some seconds.*/
                 new Handler().postDelayed(new Runnable(){
 
+                        @Override
                         public void run() {
                                 /* Create an Intent that will start the Menu-Activity. */
                                 Intent mainIntent = new Intent(Main.this, Schedule.class);

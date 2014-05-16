@@ -1,4 +1,4 @@
-package org.opensourcebridge.android2013;
+package org.opensourcebridge.navigator;
 
 public class Speaker {
     String name = null;

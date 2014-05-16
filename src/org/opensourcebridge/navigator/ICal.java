@@ -1,4 +1,4 @@
-package org.opensourcebridge.android2013;
+package org.opensourcebridge.navigator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
