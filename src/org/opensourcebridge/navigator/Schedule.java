@@ -589,14 +589,14 @@ public class Schedule extends Activity {
         ArrayList<Event> events = new ArrayList<Event>();
         try{
             String raw_json = getURL(SCHEDULE_URI, force);
-            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss-'07:00'");
+            DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss-'07:00'");
             JSONObject schedule = new JSONObject(raw_json);
             JSONArray json_events = schedule.getJSONArray("items");
             int size = json_events.length();
             for(int i=0; i<size; i++){
                 JSONObject json = json_events.getJSONObject(i);
                 if(json.has("schedule_item")) {
-                    Event event = parseScheduleItem(formatter, i, json.getJSONObject("schedule_item"));
+                    Event event = parseScheduleItem(dateFormatter, json.getJSONObject("schedule_item"));
                     events.add(event);
                 }
             }
@@ -611,7 +611,7 @@ public class Schedule extends Activity {
         calendar.setEvents(events);
     }
 
-    public Event parseScheduleItem(DateFormat formatter, int i, JSONObject json)
+    public Event parseScheduleItem(DateFormat formatter, JSONObject json)
         throws JSONException, ParseException {
 
         Event event = new Event();
